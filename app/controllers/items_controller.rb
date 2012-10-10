@@ -5,7 +5,7 @@ class ItemsController < ApplicationController
   end
   respond_to :html, :json
   def index
-    respond_with Item.all
+    render json: Item.all
   end
   def show
     respond_with(Item.find(params[:id]))
