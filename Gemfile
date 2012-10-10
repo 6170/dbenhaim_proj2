@@ -6,7 +6,6 @@ group :assets do
   gem 'uglifier', '>= 1.0.3'
 end
 gem 'jquery-rails'
-gem "mongoid", ">= 3.0.3"
 gem "rspec-rails", ">= 2.11.0", :group => [:development, :test]
 gem "capybara", ">= 1.1.2", :group => :test
 gem "database_cleaner", ">= 0.8.0", :group => :test
@@ -19,5 +18,6 @@ gem "devise", ">= 2.1.2"
 gem 'less-rails-bootstrap'
 gem 'therubyracer'
 gem 'rails-backbone'
-gem 'bson'
-gem 'bson_ext'
+gem 'bson', '1.3.1'
+gem 'bson_ext', '1.3.1'
+gem 'mongoid', '2.0.2'
