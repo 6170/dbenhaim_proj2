@@ -4,14 +4,14 @@
 #= require_tree ./views
 #= require_tree ./routers
 
-window.ShoppingCartBackbone =
+window.App =
   Models: {}
   Collections: {}
   Views: {}
   Routers: {}
   init: ->
-    new ShoppingCartBackbone.Router
+    new window.App.Routers.Bizarre()
     Backbone.history.start()
 
 $(document).ready ->
-  ShoppingCartBackbone.init()
+  window.App.init()

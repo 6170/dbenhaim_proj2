@@ -5,7 +5,7 @@ class ItemsController < ApplicationController
   end
   respond_to :html, :json
   def index
-    render json: Item.all
+    render json: Item.where(user_id:@current_user.id)
   end
   def show
     respond_with(Item.find(params[:id]))
@@ -17,9 +17,7 @@ class ItemsController < ApplicationController
   end
   def update
     item = Item.find(params[:id])
-    item.state = params[:state]
-    @current_user.orders.last.items << item
-    item.order = @current_user.orders.last
+    item.update_attributes! params
     item.save()
     render :json => item
   end
@@ -27,5 +25,9 @@ class ItemsController < ApplicationController
     item = Item.find(params[:id])
     item.destroy()
     render :text => "item destroyed", :content_type => "text/plain"
+  end
+  def forSale
+    items = Item.where(state:"Stocked").entries #.ne(user_id: @current_user.id)
+    render :json => items
   end
 end

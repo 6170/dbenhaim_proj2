@@ -14,24 +14,24 @@
       <div class="nav-collapse">
         <ul class="nav">
           <li class="">
-            <a href="#" class="buy">Buy</a>
+            <a href="#buy" class="buy">Buy</a>
           </li>
           <li class="">
-            <a href="#" class="sell">Sell</a>
+            <a href="#sell" class="sell">Sell</a>
+          </li>
+          <li class="">
+            <a href="#orders" class="orders">Manage Orders</a>
           </li>
         </ul>
         <!-- The drop down menu -->
         <% if user_signed_in? %>
         <ul class="nav pull-right">
-          <form class="navbar-search" action="">
-            <input type="text" class="search-query span2" placeholder="Search">
-          </form>
           <li class="divider-vertical"></li>
           <li class="dropdown">
             <a class="dropdown-toggle" href="#" data-toggle="dropdown">Account<strong class="caret"></strong></a>
             <ul class="dropdown-menu" style="padding: 15px; padding-bottom: 0px;">
               <!-- the form -->
-              <li><a href="#">Orders</a></li>
+              <li><a href="#orders">Orders</a></li>
               <li><%= link_to 'Edit account', edit_user_registration_path %></li>
               <li><%= link_to 'Logout', destroy_user_session_path, :method=>'delete' %></li>
             </ul>

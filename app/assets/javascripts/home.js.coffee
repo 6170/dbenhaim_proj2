@@ -22,37 +22,37 @@ $.fn.serializeObject = ->
   o
 
 $(document).ready ->
-	$('#add-item').click ->
-		$.ajax
-			url: '/items'
-			data: $('#new-item-form').serializeObject()
-			type: 'POST'
-			success: (data) ->
-				location.reload()
-		$('#newItemModal').modal('hide')
-	$('.remove-item').click ->
-		$("#accordion-item-"+$(this).data('item-id')).slideUp()
-		$.ajax
-			url: '/items/'+$(this).data('item-id')
-			data: {id:$(this).data('item-id')}
-			type: 'DELETE'
-	$(".add_to_cart").click ->
-		$.ajax
-			url: '/items/'+$(this).attr('id')
-			data: {id:$(this).attr('id'), state:'In Cart'}
-			type: 'PUT'
-			success: (data) ->
-				location.reload()
-	$(".place_order").click ->
-		$.ajax
-			url: '/orders/'+$(this).attr('id')
-			data: {id:$(this).attr('id'), state:'Ordered'}
-			type: 'PUT'
-			success: (data) ->
-				location.reload()
-	$(".buy").click ->
-		$("#sell").hide()
-		$("#buy").show()
-	$(".sell").click ->
-		$("#buy").hide()
-		$("#sell").show()
+  $('#add-item').click ->
+    $.ajax
+      url: '/items'
+      data: $('#new-item-form').serializeObject()
+      type: 'POST'
+      success: (data) ->
+        location.reload()
+    $('#newItemModal').modal('hide')
+  $('.remove-item').click ->
+    $("#accordion-item-"+$(this).data('item-id')).slideUp()
+    $.ajax
+      url: '/items/'+$(this).data('item-id')
+      data: {id:$(this).data('item-id')}
+      type: 'DELETE'
+  $(".add_to_cart").click ->
+    $.ajax
+      url: '/items/'+$(this).attr('id')
+      data: {id:$(this).attr('id'), state:'In Cart'}
+      type: 'PUT'
+      success: (data) ->
+        location.reload()
+  $(".place_order").click ->
+    $.ajax
+      url: '/orders/'+$(this).attr('id')
+      data: {id:$(this).attr('id'), state:'Ordered'}
+      type: 'PUT'
+      success: (data) ->
+        location.reload()
+  $(".buy").click ->
+    $("#sell").hide()
+    $("#buy").show()
+  $(".sell").click ->
+    $("#buy").hide()
+    $("#sell").show()

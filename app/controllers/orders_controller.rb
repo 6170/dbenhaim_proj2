@@ -6,6 +6,7 @@ class OrdersController < ApplicationController
   respond_to :html, :json
   def index
     @orders = @current_user.orders
+    render :json => @orders.to_json(:include => :items)
   end
   def show
     respond_with(Order.find(params[:id]))
@@ -18,8 +19,6 @@ class OrdersController < ApplicationController
   def update
     order = Order.find(params[:id])
     order.state = params[:state]
-    order.save()
-    order = Order.create! :state => 'Active', :user => @current_user
     order.save()
     render :json => order
   end
