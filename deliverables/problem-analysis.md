@@ -12,7 +12,7 @@ The purpose of this project is to create a shopping cart application that allows
 
 ## Domain
 ### Object Model
-![object model](https://raw.github.com/davidbenhaim/)
+![object model](https://github.com/6170/dbenhaim_proj2/blob/master/deliverables/Project2ObjectModel.png)
 
 
 ```
