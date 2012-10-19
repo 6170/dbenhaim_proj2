@@ -1,0 +1,9 @@
+billy:
+  id: 1
+  name: Billy
+  email: billy@gmail.com
+
+johnny:
+  id: 2
+  name: Jóhnny
+  email: johnny@gmail.com

@@ -45,4 +45,20 @@ class User
 
   ## Token authenticatable
   # field :authentication_token, :type => String
+
+  def owns_item?(owned_item)
+      return self.items.where(:id => owned_item.id).exists?
+  end
+
+  def owns_order?(owned_order)
+      return self.orders.where(:id => owned_item.id).exists?
+  end
+  def owns_item_in_order?(owned_item)
+      for order in self.orders
+        if order.owns_item(owned_item)
+          return true
+        end
+      end
+      return false
+  end
 end
